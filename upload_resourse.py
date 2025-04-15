@@ -127,9 +127,9 @@ def upload_resource(resource, retry_count=3):
                 response.raise_for_status()
                 logging.info(f"上传响应状态码: {response.status_code}")
                 # logging.info(f"上传成功. 响应: {response.headers.get('Content-Type')}")
-                logging.info(f"上传成功. 响应: {len(response.text)}")
-                with open('tem.txt', 'w', encoding='utf-8') as f:
-                    f.write(response.text)
+                logging.info(f"上传成功. 响应网页的长度（若成功应该40000左右）: {len(response.text)}")
+                # with open('tem.txt', 'w', encoding='utf-8') as f:
+                #     f.write(response.text)
                 return True
         except Exception as e:
             if attempt < retry_count:
